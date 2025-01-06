@@ -22,7 +22,7 @@ void initCarrosApreendidos(CarrosApreendidos *carros) {
     carros->size = 0;
     carros->data = malloc(carros->capacity * sizeof(CarroApreendido));
     if (carros->data == NULL) {
-        perror("Falha ao alocar memÛria inicial");
+        perror("Falha ao alocar mem√≥ria inicial");
         exit(EXIT_FAILURE);
     }
 }
@@ -31,7 +31,7 @@ void expandirCarros(CarrosApreendidos *carros) {
     int novaCapacidade = carros->capacity * 2;
     CarroApreendido *temp = realloc(carros->data, novaCapacidade * sizeof(CarroApreendido));
     if (temp == NULL) {
-        perror("Falha ao realocar memÛria");
+        perror("Falha ao realocar mem√≥ria");
         free(carros->data);
         exit(EXIT_FAILURE);
     }
@@ -94,7 +94,7 @@ CarroApreendido criarCarroApreendido() {
 void imprimirCarro(const CarroApreendido *carro) {
     printf("Placa: %s\n", carro->placa);
     printf("Motivo: %s\n", carro->motivo);
-    printf("Data Apreens„o: %s\n", carro->dataApreensao);
+    printf("Data Apreens√£o: %s\n", carro->dataApreensao);
     printf("Local: %s\n", carro->local);
 }
 
@@ -113,7 +113,7 @@ void buscarPorPlaca(CarrosApreendidos *carros) {
         }
     }
     if (!encontrado) {
-        printf("Carro com placa %s n„o encontrado.\n", placa);
+        printf("Carro com placa %s n√£o encontrado.\n", placa);
     }
 }
 
@@ -130,7 +130,7 @@ void removerCarro(CarrosApreendidos *carros) {
         }
     }
     if (encontrado == -1) {
-        printf("Carro com placa %s n„o encontrado.\n", placa);
+        printf("Carro com placa %s n√£o encontrado.\n", placa);
         return;
     }
     for (int i = encontrado; i < carros->size - 1; i++) {
@@ -185,7 +185,7 @@ int main() {
                 imprimirCarro(&carros.data[i]);
             } break;
             case '5': salvarEmArquivo(&carros, "carros.dat"); break;
-            default: printf("OpÁ„o inv·lida.\n");
+            default: printf("Op√ß√£o inv√°lida.\n");
         }
     } while (opcao != '5');
     free(carros.data);
